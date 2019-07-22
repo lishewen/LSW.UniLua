@@ -5,7 +5,9 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>算神</Authors>
     <Company>算神工作室</Company>
-    <Description>Lua调用库</Description>
+    <Description>一个C#与Lua互操作的库，可用于.net core</Description>
+    <Copyright>CopyRight &amp;copy; 算神工作室 2019</Copyright>
+    <RepositoryUrl>https://github.com/lishewen/LSW.UniLua</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
