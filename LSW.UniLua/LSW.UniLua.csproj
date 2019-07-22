@@ -3,11 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <version>1.0.1</version>
     <Authors>算神</Authors>
     <Company>算神工作室</Company>
     <Description>一个C#与Lua互操作的库，可用于.net core</Description>
     <Copyright>CopyRight &amp;copy; 算神工作室 2019</Copyright>
     <RepositoryUrl>https://github.com/lishewen/LSW.UniLua</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/lishewen/LSW.UniLua</PackageProjectUrl>
+    <projectUrl>https://github.com/lishewen/LSW.UniLua</projectUrl>
+    <PackageTags>Lua,.net core</PackageTags>
+    <RepositoryType>github</RepositoryType>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
   </PropertyGroup>
 
 </Project>
