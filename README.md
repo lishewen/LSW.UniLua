@@ -6,3 +6,6 @@
 
 # Nuget Package
 https://www.nuget.org/packages/LSW.UniLua/
+
+# GitHub nuget registry
+https://github.com/lishewen/LSW.UniLua/packages
