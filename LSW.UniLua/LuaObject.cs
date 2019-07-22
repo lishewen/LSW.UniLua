@@ -194,6 +194,26 @@ namespace LSW.UniLua
 			UInt64Value = CLOSURE_LCS;
 			OValue = v;
 		}
+
+		public override string ToString()
+		{
+			if (TtIsString())
+			{
+				return string.Format("(string, {0})", SValue());
+			}
+			else if (TtIsNumber())
+			{
+				return string.Format("(number, {0})", NValue);
+			}
+			else if (TtIsNil())
+			{
+				return "(nil)";
+			}
+			else
+			{
+				return string.Format("(type:{0})", Tt);
+			}
+		}
 	}
 
 	public class StkId
@@ -206,7 +226,7 @@ namespace LSW.UniLua
 		public void SetList(StkId[] list) { List = list; }
 		public void SetIndex(int index) { Index = index; }
 
-		public static StkId inc(ref StkId val)
+		public static StkId Inc(ref StkId val)
 		{
 			var ret = val;
 			val = val.List[val.Index+1];

@@ -723,7 +723,7 @@ namespace LSW.UniLua
 			int index = Top.Index-n;
 			Top = Stack[index];
 			for(int i=0; i<n; ++i)
-				{ StkId.inc(ref toLua.Top).V.SetObj(ref Stack[index+i].V); }
+				{ StkId.Inc(ref toLua.Top).V.SetObj(ref Stack[index+i].V); }
 		}
 
 		private void GrowStack(int size)
@@ -975,7 +975,7 @@ namespace LSW.UniLua
 			if( !Index2Addr( index, out addr ) )
 				Utl.InvalidIndex();
 
-			StkId.inc(ref Top).V.SetSValue( key );
+			StkId.Inc(ref Top).V.SetSValue( key );
 			V_SetTable( addr, Stack[Top.Index-1], Stack[Top.Index-2] );
 			Top = Stack[Top.Index-2];
 		}
@@ -1383,14 +1383,14 @@ namespace LSW.UniLua
 		void ILuaAPI.GetGlobal( string name )
 		{
 			var gt = G.Registry.V.HValue().GetInt( LuaDef.LUA_RIDX_GLOBALS );
-			StkId.inc(ref Top).V.SetSValue(name);
+			StkId.Inc(ref Top).V.SetSValue(name);
 			V_GetTable(gt, Stack[Top.Index-1], Stack[Top.Index-1]);
 		}
 
 		void ILuaAPI.SetGlobal( string name )
 		{
 			var gt = G.Registry.V.HValue().GetInt( LuaDef.LUA_RIDX_GLOBALS );
-			StkId.inc(ref Top).V.SetSValue(name);
+			StkId.Inc(ref Top).V.SetSValue(name);
 			V_SetTable(gt, Stack[Top.Index-1], Stack[Top.Index-2]);
 			Top = Stack[Top.Index-2];
 		}

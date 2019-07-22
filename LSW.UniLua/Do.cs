@@ -135,7 +135,7 @@ namespace LSW.UniLua
 				// 补全参数
 				int n = (Top.Index - func.Index) - 1;
 				for( ; n<p.NumParams; ++n )
-					{ StkId.inc(ref Top).V.SetNilValue(); }
+					{ StkId.Inc(ref Top).V.SetNilValue(); }
 
 				int stackBase = (!p.IsVarArg) ? (func.Index + 1) : AdjustVarargs( p, n );
 				

@@ -987,11 +987,11 @@ calltm:
 		{
 			var result = p3.Index;
 			var func = Top;
-			StkId.inc(ref Top).V.SetObj(ref f); 	// push function
-			StkId.inc(ref Top).V.SetObj(ref p1);	// push 1st argument
-			StkId.inc(ref Top).V.SetObj(ref p2);	// push 2nd argument
+			StkId.Inc(ref Top).V.SetObj(ref f); 	// push function
+			StkId.Inc(ref Top).V.SetObj(ref p1);	// push 1st argument
+			StkId.Inc(ref Top).V.SetObj(ref p2);	// push 2nd argument
 			if( !hasres ) 		// no result? p3 is 3rd argument
-				StkId.inc(ref Top).V.SetObj(ref p3.V);
+				StkId.Inc(ref Top).V.SetObj(ref p3.V);
 			D_CheckStack(0);
 			D_Call( func, (hasres ? 1 : 0), CI.IsLua );
 			if( hasres )		// if has result, move it ot its place

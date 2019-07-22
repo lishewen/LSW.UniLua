@@ -198,7 +198,7 @@ namespace LSW.UniLua
 
 		private void IncrTop()
 		{
-			StkId.inc(ref Top);
+			StkId.Inc(ref Top);
 			D_CheckStack(0);
 		}
 
@@ -209,7 +209,7 @@ namespace LSW.UniLua
 
 		private void ApiIncrTop()
 		{
-			StkId.inc(ref Top);
+			StkId.Inc(ref Top);
 			// ULDebug.Log( "[ApiIncrTop] ==== Top.Index:" + Top.Index );
 			// ULDebug.Log( "[ApiIncrTop] ==== CI.Top.Index:" + CI.Top.Index );
 			Utl.ApiCheck( Top.Index <= CI.TopIndex, "stack overflow" );
@@ -238,7 +238,7 @@ namespace LSW.UniLua
 			}
 			CI = BaseCI[0];
 			CI.FuncIndex = Top.Index;
-			StkId.inc(ref Top).V.SetNilValue(); // `function' entry for this `ci'
+			StkId.Inc(ref Top).V.SetNilValue(); // `function' entry for this `ci'
 			CI.TopIndex = Top.Index + LuaDef.LUA_MINSTACK;
 		}
 
