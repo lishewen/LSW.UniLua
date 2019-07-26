@@ -15,107 +15,107 @@ namespace LSW.UniLua
 	{
 		LuaState NewThread();
 
-		ThreadStatus Load( ILoadInfo loadinfo, string name, string mode );
-		DumpStatus Dump( LuaWriter writeFunc );
+		ThreadStatus Load(ILoadInfo loadinfo, string name, string mode);
+		DumpStatus Dump(LuaWriter writeFunc);
 
-		ThreadStatus GetContext( out int context );
-		void Call( int numArgs, int numResults );
-		void CallK( int numArgs, int numResults,
-			int context, CSharpFunctionDelegate continueFunc );
-		ThreadStatus PCall( int numArgs, int numResults, int errFunc);
-		ThreadStatus PCallK( int numArgs, int numResults, int errFunc,
-			int context, CSharpFunctionDelegate continueFunc );
+		ThreadStatus GetContext(out int context);
+		void Call(int numArgs, int numResults);
+		void CallK(int numArgs, int numResults,
+			int context, CSharpFunctionDelegate continueFunc);
+		ThreadStatus PCall(int numArgs, int numResults, int errFunc);
+		ThreadStatus PCallK(int numArgs, int numResults, int errFunc,
+			int context, CSharpFunctionDelegate continueFunc);
 
-		ThreadStatus Resume( ILuaState from, int numArgs );
-		int Yield( int numResults );
-		int YieldK( int numResults,
-			int context, CSharpFunctionDelegate continueFunc );
+		ThreadStatus Resume(ILuaState from, int numArgs);
+		int Yield(int numResults);
+		int YieldK(int numResults,
+			int context, CSharpFunctionDelegate continueFunc);
 
-		int  AbsIndex( int index );
-		int  GetTop();
-		void SetTop( int top );
+		int AbsIndex(int index);
+		int GetTop();
+		void SetTop(int top);
 
-		void Remove( int index );
-		void Insert( int index );
-		void Replace( int index );
-		void Copy( int fromIndex, int toIndex );
-		void XMove( ILuaState to, int n );
+		void Remove(int index);
+		void Insert(int index);
+		void Replace(int index);
+		void Copy(int fromIndex, int toIndex);
+		void XMove(ILuaState to, int n);
 
-		bool CheckStack( int size );
-		bool GetStack( int level, LuaDebug ar );
-		int  Error();
+		bool CheckStack(int size);
+		bool GetStack(int level, LuaDebug ar);
+		int Error();
 
-		int  UpvalueIndex( int i );
-		string GetUpvalue( int funcIndex, int n );
-		string SetUpvalue( int funcIndex, int n );
+		int UpvalueIndex(int i);
+		string GetUpvalue(int funcIndex, int n);
+		string SetUpvalue(int funcIndex, int n);
 
-		void CreateTable( int narray, int nrec );
+		void CreateTable(int narray, int nrec);
 		void NewTable();
-		bool Next( int index );
-		void RawGetI( int index, int n );
-		void RawSetI( int index, int n );
-		void RawGet( int index );
-		void RawSet( int index );
-		void GetField( int index, string key );
-		void SetField( int index, string key );
-		void GetTable( int index );
-		void SetTable( int index );
+		bool Next(int index);
+		void RawGetI(int index, int n);
+		void RawSetI(int index, int n);
+		void RawGet(int index);
+		void RawSet(int index);
+		void GetField(int index, string key);
+		void SetField(int index, string key);
+		void GetTable(int index);
+		void SetTable(int index);
 
-		void Concat( int n );
+		void Concat(int n);
 
-		LuaType Type( int index );
-		string TypeName( LuaType t );
-		bool IsNil( int index );
-		bool IsNone( int index );
-		bool IsNoneOrNil( int index );
-		bool IsString( int index );
-		bool IsTable( int index );
-		bool IsFunction( int index );
+		LuaType Type(int index);
+		string TypeName(LuaType t);
+		bool IsNil(int index);
+		bool IsNone(int index);
+		bool IsNoneOrNil(int index);
+		bool IsString(int index);
+		bool IsTable(int index);
+		bool IsFunction(int index);
 
-		bool Compare( int index1, int index2, LuaEq op );
-		bool RawEqual( int index1, int index2 );
-		int  RawLen( int index );
-		void Len( int index );
+		bool Compare(int index1, int index2, LuaEq op);
+		bool RawEqual(int index1, int index2);
+		int RawLen(int index);
+		void Len(int index);
 
 		void PushNil();
-		void PushBoolean( bool b );
-		void PushNumber( double n );
-		void PushInteger( int n );
-		void PushUnsigned( uint n );
-		string PushString( string s );
-		void PushCSharpFunction( CSharpFunctionDelegate f );
-		void PushCSharpClosure( CSharpFunctionDelegate f, int n );
-		void PushValue( int index );
+		void PushBoolean(bool b);
+		void PushNumber(double n);
+		void PushInteger(int n);
+		void PushUnsigned(uint n);
+		string PushString(string s);
+		void PushCSharpFunction(CSharpFunctionDelegate f);
+		void PushCSharpClosure(CSharpFunctionDelegate f, int n);
+		void PushValue(int index);
 		void PushGlobalTable();
-		void PushLightUserData( object o );
-		void PushUInt64( UInt64 o );
+		void PushLightUserData(object o);
+		void PushUInt64(UInt64 o);
 		bool PushThread();
 
-		void Pop( int n );
+		void Pop(int n);
 
-		bool GetMetaTable( int index );
-		bool SetMetaTable( int index );
+		bool GetMetaTable(int index);
+		bool SetMetaTable(int index);
 
-		void GetGlobal( string name );
-		void SetGlobal( string name );
+		void GetGlobal(string name);
+		void SetGlobal(string name);
 
-		string 	ToString( int index );
-		double 	ToNumberX( int index, out bool isnum );
-		double 	ToNumber( int index );
-		int		ToIntegerX( int index, out bool isnum );
-		int		ToInteger( int index );
-		uint	ToUnsignedX( int index, out bool isnum );
-		uint	ToUnsigned( int index );
-		bool   	ToBoolean( int index );
-		UInt64	ToUInt64( int index );
-		UInt64	ToUInt64X( int index, out bool isnum );
-		object 	ToObject( int index );
-		object  ToUserData( int index );
-		ILuaState	ToThread( int index );
+		string ToString(int index);
+		double ToNumberX(int index, out bool isnum);
+		double ToNumber(int index);
+		int ToIntegerX(int index, out bool isnum);
+		int ToInteger(int index);
+		uint ToUnsignedX(int index, out bool isnum);
+		uint ToUnsigned(int index);
+		bool ToBoolean(int index);
+		UInt64 ToUInt64(int index);
+		UInt64 ToUInt64X(int index, out bool isnum);
+		object ToObject(int index);
+		object ToUserData(int index);
+		ILuaState ToThread(int index);
 
-		ThreadStatus	Status { get; }
+		ThreadStatus Status { get; }
 
-		string 	DebugGetInstructionHistory();
+		string DebugGetInstructionHistory();
 	}
 
 	public interface ILuaState : ILuaAPI, ILuaAuxLib
@@ -185,28 +185,28 @@ namespace LSW.UniLua
 
 		struct LoadParameter
 		{
-			public LuaState		L;
-			public ILoadInfo 	LoadInfo;
-			public string 		Name;
-			public string 		Mode;
+			public LuaState L;
+			public ILoadInfo LoadInfo;
+			public string Name;
+			public string Mode;
 
 			public LoadParameter(LuaState l, ILoadInfo loadinfo, string name, string mode)
 			{
-				L			= l;
-				LoadInfo 	= loadinfo;
-				Name		= name;
-				Mode		= mode;
+				L = l;
+				LoadInfo = loadinfo;
+				Name = name;
+				Mode = mode;
 			}
 		}
 
-		private void CheckMode( string given, string expected )
+		private void CheckMode(string given, string expected)
 		{
-			if( given != null && given.IndexOf(expected[0]) == -1 )
+			if (given != null && given.IndexOf(expected[0]) == -1)
 			{
-				O_PushString( string.Format(
+				O_PushString(string.Format(
 					"attempt to load a {0} chunk (mode is '{1}')",
-					expected, given ) );
-				D_Throw( ThreadStatus.LUA_ERRSYNTAX );
+					expected, given));
+				D_Throw(ThreadStatus.LUA_ERRSYNTAX);
 			}
 		}
 
@@ -216,35 +216,37 @@ namespace LSW.UniLua
 
 			LuaProto proto;
 			var c = param.LoadInfo.PeekByte();
-			if( c == LuaConf.LUA_SIGNATURE[0] )
+			if (c == LuaConf.LUA_SIGNATURE[0])
 			{
-				L.CheckMode( param.Mode, "binary" );
+				L.CheckMode(param.Mode, "binary");
 				proto = Undump.LoadBinary(L, param.LoadInfo, param.Name);
 			}
 			else
 			{
-				L.CheckMode( param.Mode, "text" );
+				L.CheckMode(param.Mode, "text");
 				proto = Parser.Parse(L, param.LoadInfo, param.Name);
 			}
 
-			var cl = new LuaLClosureValue( proto );
+			var cl = new LuaLClosureValue(proto);
 			Utl.Assert(cl.Upvals.Length == cl.Proto.Upvalues.Count);
 
 			L.Top.V.SetClLValue(cl);
 			L.IncrTop();
 		}
-		private static PFuncDelegate<LoadParameter> DG_F_Load = F_Load;
+		private static readonly PFuncDelegate<LoadParameter> DG_F_Load = F_Load;
 
-		ThreadStatus ILuaAPI.Load( ILoadInfo loadinfo, string name, string mode )
+		ThreadStatus ILuaAPI.Load(ILoadInfo loadinfo, string name, string mode)
 		{
-			var param  = new LoadParameter(this, loadinfo, name, mode);
-			var status = D_PCall( DG_F_Load, ref param, Top.Index, ErrFunc );
+			var param = new LoadParameter(this, loadinfo, name, mode);
+			var status = D_PCall(DG_F_Load, ref param, Top.Index, ErrFunc);
 
-			if( status == ThreadStatus.LUA_OK ) {
-				var below = Stack[Top.Index-1];
+			if (status == ThreadStatus.LUA_OK)
+			{
+				var below = Stack[Top.Index - 1];
 				Utl.Assert(below.V.TtIsFunction() && below.V.ClIsLuaClosure());
 				var cl = below.V.ClLValue();
-				if(cl.Upvals.Length == 1) {
+				if (cl.Upvals.Length == 1)
+				{
 					var gt = G.Registry.V.HValue().GetInt(LuaDef.LUA_RIDX_GLOBALS);
 					cl.Upvals[0].V.V.SetObj(ref gt.V);
 				}
@@ -253,36 +255,36 @@ namespace LSW.UniLua
 			return status;
 		}
 
-		DumpStatus ILuaAPI.Dump( LuaWriter writeFunc )
+		DumpStatus ILuaAPI.Dump(LuaWriter writeFunc)
 		{
-			Utl.ApiCheckNumElems( this, 1 );
+			Utl.ApiCheckNumElems(this, 1);
 
-			var below = Stack[Top.Index-1];
-			if(!below.V.TtIsFunction() || !below.V.ClIsLuaClosure())
+			var below = Stack[Top.Index - 1];
+			if (!below.V.TtIsFunction() || !below.V.ClIsLuaClosure())
 				return DumpStatus.ERROR;
 
 			var o = below.V.ClLValue();
-			if(o == null)
+			if (o == null)
 				return DumpStatus.ERROR;
 
 			return DumpState.Dump(o.Proto, writeFunc, false);
 		}
 
-		ThreadStatus ILuaAPI.GetContext( out int context )
+		ThreadStatus ILuaAPI.GetContext(out int context)
 		{
-			if( (CI.CallStatus & CallStatus.CIST_YIELDED) != 0 )
+			if ((CI.CallStatus & CallStatus.CIST_YIELDED) != 0)
 			{
 				context = CI.Context;
 				return CI.Status;
 			}
 			else
 			{
-				context = default(int);
+				context = default;
 				return ThreadStatus.LUA_OK;
 			}
 		}
 
-		void ILuaAPI.Call( int numArgs, int numResults )
+		void ILuaAPI.Call(int numArgs, int numResults)
 		{
 			// StkId func = Top - (numArgs + 1);
 			// if( !D_PreCall( func, numResults ) )
@@ -290,33 +292,33 @@ namespace LSW.UniLua
 			// 	V_Execute();
 			// }
 
-			API.CallK( numArgs, numResults, 0, null );
+			API.CallK(numArgs, numResults, 0, null);
 		}
 
-		void ILuaAPI.CallK( int numArgs, int numResults,
-			int context, CSharpFunctionDelegate continueFunc )
+		void ILuaAPI.CallK(int numArgs, int numResults,
+			int context, CSharpFunctionDelegate continueFunc)
 		{
-			Utl.ApiCheck( continueFunc == null || !CI.IsLua,
-				"cannot use continuations inside hooks" );
-			Utl.ApiCheckNumElems( this, numArgs + 1 );
-			Utl.ApiCheck( Status == ThreadStatus.LUA_OK,
-				"cannot do calls on non-normal thread" );
-			CheckResults( numArgs, numResults );
-			var func = Stack[Top.Index - (numArgs+1)];
+			Utl.ApiCheck(continueFunc == null || !CI.IsLua,
+				"cannot use continuations inside hooks");
+			Utl.ApiCheckNumElems(this, numArgs + 1);
+			Utl.ApiCheck(Status == ThreadStatus.LUA_OK,
+				"cannot do calls on non-normal thread");
+			CheckResults(numArgs, numResults);
+			var func = Stack[Top.Index - (numArgs + 1)];
 
 			// need to prepare continuation?
-			if( continueFunc != null && NumNonYieldable == 0 )
+			if (continueFunc != null && NumNonYieldable == 0)
 			{
 				CI.ContinueFunc = continueFunc;
-				CI.Context		= context;
-				D_Call( func, numResults, true );
+				CI.Context = context;
+				D_Call(func, numResults, true);
 			}
 			// no continuation or no yieldable
 			else
 			{
-				D_Call( func, numResults, false );
+				D_Call(func, numResults, false);
 			}
-			AdjustResults( numResults );
+			AdjustResults(numResults);
 		}
 
 		private struct CallS
@@ -328,115 +330,116 @@ namespace LSW.UniLua
 
 		private static void F_Call(ref CallS ud)
 		{
-			CallS c = (CallS)ud;
+			CallS c = ud;
 			c.L.D_Call(c.L.Stack[c.FuncIndex], c.NumResults, false);
 		}
-		private static PFuncDelegate<CallS> DG_F_Call = F_Call;
+		private static readonly PFuncDelegate<CallS> DG_F_Call = F_Call;
 
-		private void CheckResults( int numArgs, int numResults )
+		private void CheckResults(int numArgs, int numResults)
 		{
-			Utl.ApiCheck( numResults == LuaDef.LUA_MULTRET ||
+			Utl.ApiCheck(numResults == LuaDef.LUA_MULTRET ||
 				CI.TopIndex - Top.Index >= numResults - numArgs,
-				"results from function overflow current stack size" );
+				"results from function overflow current stack size");
 		}
 
-		private void AdjustResults( int numResults )
+		private void AdjustResults(int numResults)
 		{
-			if( numResults == LuaDef.LUA_MULTRET &&
-				CI.TopIndex < Top.Index )
+			if (numResults == LuaDef.LUA_MULTRET &&
+				CI.TopIndex < Top.Index)
 			{
 				CI.TopIndex = Top.Index;
 			}
 		}
 
-		ThreadStatus ILuaAPI.PCall( int numArgs, int numResults, int errFunc)
+		ThreadStatus ILuaAPI.PCall(int numArgs, int numResults, int errFunc)
 		{
-			return API.PCallK( numArgs, numResults, errFunc, 0, null );
+			return API.PCallK(numArgs, numResults, errFunc, 0, null);
 		}
 
-		ThreadStatus ILuaAPI.PCallK( int numArgs, int numResults, int errFunc,
-			int context, CSharpFunctionDelegate continueFunc )
+		ThreadStatus ILuaAPI.PCallK(int numArgs, int numResults, int errFunc,
+			int context, CSharpFunctionDelegate continueFunc)
 		{
-			Utl.ApiCheck( continueFunc == null || !CI.IsLua,
-				"cannot use continuations inside hooks" );
-			Utl.ApiCheckNumElems( this, numArgs + 1 );
-			Utl.ApiCheck( Status == ThreadStatus.LUA_OK,
-				"cannot do calls on non-normal thread" );
-			CheckResults( numArgs, numResults );
+			Utl.ApiCheck(continueFunc == null || !CI.IsLua,
+				"cannot use continuations inside hooks");
+			Utl.ApiCheckNumElems(this, numArgs + 1);
+			Utl.ApiCheck(Status == ThreadStatus.LUA_OK,
+				"cannot do calls on non-normal thread");
+			CheckResults(numArgs, numResults);
 
 			int func;
-			if( errFunc == 0 )
+			if (errFunc == 0)
 				func = 0;
 			else
 			{
-				StkId addr;
-				if( !Index2Addr( errFunc, out addr ) )
+				if (!Index2Addr(errFunc, out StkId addr))
 					Utl.InvalidIndex();
 
 				func = addr.Index;
 			}
 
 			ThreadStatus status;
-			CallS c = new CallS();
-			c.L = this;
-			c.FuncIndex = Top.Index - (numArgs + 1);
-			if( continueFunc == null || NumNonYieldable > 0 ) // no continuation or no yieldable?
+			CallS c = new CallS
+			{
+				L = this,
+				FuncIndex = Top.Index - (numArgs + 1)
+			};
+			if (continueFunc == null || NumNonYieldable > 0) // no continuation or no yieldable?
 			{
 				c.NumResults = numResults;
-				status = D_PCall( DG_F_Call, ref c, c.FuncIndex, func );
+				status = D_PCall(DG_F_Call, ref c, c.FuncIndex, func);
 			}
 			else
 			{
 				int ciIndex = CI.Index;
 				CI.ContinueFunc = continueFunc;
-				CI.Context		= context;
-				CI.ExtraIndex	= c.FuncIndex;
-				CI.OldAllowHook	= AllowHook;
-				CI.OldErrFunc	= ErrFunc;
+				CI.Context = context;
+				CI.ExtraIndex = c.FuncIndex;
+				CI.OldAllowHook = AllowHook;
+				CI.OldErrFunc = ErrFunc;
 				ErrFunc = func;
 				CI.CallStatus |= CallStatus.CIST_YPCALL;
 
-				D_Call( Stack[c.FuncIndex], numResults, true );
+				D_Call(Stack[c.FuncIndex], numResults, true);
 
 				CallInfo ci = BaseCI[ciIndex];
 				ci.CallStatus &= ~CallStatus.CIST_YPCALL;
 				ErrFunc = ci.OldErrFunc;
 				status = ThreadStatus.LUA_OK;
 			}
-			AdjustResults( numResults );
+			AdjustResults(numResults);
 			return status;
 		}
 
 		private void FinishCSharpCall()
 		{
 			CallInfo ci = CI;
-			Utl.Assert( ci.ContinueFunc != null ); // must have a continuation
-			Utl.Assert( NumNonYieldable == 0 );
+			Utl.Assert(ci.ContinueFunc != null); // must have a continuation
+			Utl.Assert(NumNonYieldable == 0);
 			// finish `CallK'
-			AdjustResults( ci.NumResults );
+			AdjustResults(ci.NumResults);
 			// call continuation function
-			if( (ci.CallStatus & CallStatus.CIST_STAT) == 0 ) // no call status?
+			if ((ci.CallStatus & CallStatus.CIST_STAT) == 0) // no call status?
 			{
 				ci.Status = ThreadStatus.LUA_YIELD; // `default' status
 			}
-			Utl.Assert( ci.Status != ThreadStatus.LUA_OK );
-			ci.CallStatus = ( ci.CallStatus
-							& ~( CallStatus.CIST_YPCALL | CallStatus.CIST_STAT))
+			Utl.Assert(ci.Status != ThreadStatus.LUA_OK);
+			ci.CallStatus = (ci.CallStatus
+							& ~(CallStatus.CIST_YPCALL | CallStatus.CIST_STAT))
 							| CallStatus.CIST_YIELDED;
 
-			int n = ci.ContinueFunc( this ); // call
-			Utl.ApiCheckNumElems( this, n );
+			int n = ci.ContinueFunc(this); // call
+			Utl.ApiCheckNumElems(this, n);
 			// finish `D_PreCall'
-			D_PosCall( Top.Index-n );
+			D_PosCall(Top.Index - n);
 		}
 
 		private void Unroll()
 		{
-			while( true )
+			while (true)
 			{
-				if( CI.Index == 0 ) // stack is empty?
+				if (CI.Index == 0) // stack is empty?
 					return; // coroutine finished normally
-				if( !CI.IsLua ) // C# function?
+				if (!CI.IsLua) // C# function?
 					FinishCSharpCall();
 				else // Lua function
 				{
@@ -453,36 +456,37 @@ namespace LSW.UniLua
 		{
 			param.L.Unroll();
 		}
-		private static PFuncDelegate<UnrollParam> DG_Unroll = UnrollWrap;
+		private static readonly PFuncDelegate<UnrollParam> DG_Unroll = UnrollWrap;
 
-		private void ResumeError( string msg, int firstArg )
+		private void ResumeError(string msg, int firstArg)
 		{
 			Top = Stack[firstArg];
 			Top.V.SetSValue(msg);
 			IncrTop();
-			D_Throw( ThreadStatus.LUA_RESUME_ERROR );
+			D_Throw(ThreadStatus.LUA_RESUME_ERROR);
 		}
 
 		// check whether thread has suspended protected call
 		private CallInfo FindPCall()
 		{
-			for(int i=CI.Index; i>=0; --i) {
+			for (int i = CI.Index; i >= 0; --i)
+			{
 				var ci = BaseCI[i];
-				if( (ci.CallStatus & CallStatus.CIST_YPCALL) != 0 )
-					{ return ci; }
+				if ((ci.CallStatus & CallStatus.CIST_YPCALL) != 0)
+				{ return ci; }
 			}
 			return null; // no pending pcall
 		}
 
-		private bool Recover( ThreadStatus status )
+		private bool Recover(ThreadStatus status)
 		{
 			CallInfo ci = FindPCall();
-			if( ci == null ) // no recover point
+			if (ci == null) // no recover point
 				return false;
 
 			StkId oldTop = Stack[ci.ExtraIndex];
-			F_Close( oldTop );
-			SetErrorObj( status, oldTop );
+			F_Close(oldTop);
+			SetErrorObj(status, oldTop);
 			CI = ci;
 			AllowHook = ci.OldAllowHook;
 			NumNonYieldable = 0;
@@ -497,46 +501,46 @@ namespace LSW.UniLua
 		{
 			int numCSharpCalls = NumCSharpCalls;
 			CallInfo ci = CI;
-			if( numCSharpCalls >= LuaLimits.LUAI_MAXCCALLS )
-				ResumeError( "C stack overflow", firstArg );
-			if( Status == ThreadStatus.LUA_OK ) // may be starting a coroutine
+			if (numCSharpCalls >= LuaLimits.LUAI_MAXCCALLS)
+				ResumeError("C stack overflow", firstArg);
+			if (Status == ThreadStatus.LUA_OK) // may be starting a coroutine
 			{
-				if( ci.Index > 0 ) // not in base level
+				if (ci.Index > 0) // not in base level
 				{
-					ResumeError( "cannot resume non-suspended coroutine", firstArg );
+					ResumeError("cannot resume non-suspended coroutine", firstArg);
 				}
-				if( !D_PreCall( Stack[firstArg-1], LuaDef.LUA_MULTRET ) ) // Lua function?
+				if (!D_PreCall(Stack[firstArg - 1], LuaDef.LUA_MULTRET)) // Lua function?
 				{
 					V_Execute(); // call it
 				}
 			}
-			else if( Status != ThreadStatus.LUA_YIELD )
+			else if (Status != ThreadStatus.LUA_YIELD)
 			{
-				ResumeError( "cannot resume dead coroutine", firstArg );
+				ResumeError("cannot resume dead coroutine", firstArg);
 			}
 			else // resume from previous yield
 			{
 				Status = ThreadStatus.LUA_OK;
 				ci.FuncIndex = ci.ExtraIndex;
-				if( ci.IsLua ) // yielded inside a hook?
+				if (ci.IsLua) // yielded inside a hook?
 				{
 					V_Execute(); // just continue running Lua code
 				}
 				else // `common' yield
 				{
-					if( ci.ContinueFunc != null )
+					if (ci.ContinueFunc != null)
 					{
 						ci.Status = ThreadStatus.LUA_YIELD; // `default' status
 						ci.CallStatus |= CallStatus.CIST_YIELDED;
-						int n = ci.ContinueFunc( this ); // call continuation
-						Utl.ApiCheckNumElems( this, n );
+						int n = ci.ContinueFunc(this); // call continuation
+						Utl.ApiCheckNumElems(this, n);
 						firstArg = Top.Index - n; // yield results come from continuation
 					}
 					D_PosCall(firstArg);
 				}
 				Unroll();
 			}
-			Utl.Assert( numCSharpCalls == NumCSharpCalls );
+			Utl.Assert(numCSharpCalls == NumCSharpCalls);
 		}
 		struct ResumeParam
 		{
@@ -547,91 +551,95 @@ namespace LSW.UniLua
 		{
 			param.L.Resume(param.firstArg);
 		}
-		private static PFuncDelegate<ResumeParam> DG_Resume = ResumeWrap;
+		private static readonly PFuncDelegate<ResumeParam> DG_Resume = ResumeWrap;
 
-		ThreadStatus ILuaAPI.Resume( ILuaState from, int numArgs )
+		ThreadStatus ILuaAPI.Resume(ILuaState from, int numArgs)
 		{
 			LuaState fromState = from as LuaState;
 			NumCSharpCalls = (fromState != null) ? fromState.NumCSharpCalls + 1 : 1;
 			NumNonYieldable = 0; // allow yields
 
-			Utl.ApiCheckNumElems( this, (Status == ThreadStatus.LUA_OK) ? numArgs + 1 : numArgs );
+			Utl.ApiCheckNumElems(this, (Status == ThreadStatus.LUA_OK) ? numArgs + 1 : numArgs);
 
-			var resumeParam = new ResumeParam();
-			resumeParam.L = this;
-			resumeParam.firstArg = Top.Index-numArgs;
-			ThreadStatus status = D_RawRunProtected( DG_Resume, ref resumeParam );
-			if( status == ThreadStatus.LUA_RESUME_ERROR ) // error calling `lua_resume'?
+			var resumeParam = new ResumeParam
+			{
+				L = this,
+				firstArg = Top.Index - numArgs
+			};
+			ThreadStatus status = D_RawRunProtected(DG_Resume, ref resumeParam);
+			if (status == ThreadStatus.LUA_RESUME_ERROR) // error calling `lua_resume'?
 			{
 				status = ThreadStatus.LUA_ERRRUN;
 			}
 			else // yield or regular error
 			{
-				while( status != ThreadStatus.LUA_OK && status != ThreadStatus.LUA_YIELD ) // error?
+				while (status != ThreadStatus.LUA_OK && status != ThreadStatus.LUA_YIELD) // error?
 				{
-					if( Recover( status ) ) // recover point?
+					if (Recover(status)) // recover point?
 					{
-						var unrollParam = new UnrollParam();
-						unrollParam.L = this;
-						status = D_RawRunProtected( DG_Unroll, ref unrollParam );
+						var unrollParam = new UnrollParam
+						{
+							L = this
+						};
+						status = D_RawRunProtected(DG_Unroll, ref unrollParam);
 					}
 					else // unrecoverable error
 					{
 						Status = status; // mark thread as `dead'
-						SetErrorObj( status, Top );
+						SetErrorObj(status, Top);
 						CI.TopIndex = Top.Index;
 						break;
 					}
 				}
-				Utl.Assert( status == Status );
+				Utl.Assert(status == Status);
 			}
 
 			NumNonYieldable = 1; // do not allow yields
 			NumCSharpCalls--;
-			Utl.Assert( NumCSharpCalls == ((fromState != null) ? fromState.NumCSharpCalls : 0) );
+			Utl.Assert(NumCSharpCalls == ((fromState != null) ? fromState.NumCSharpCalls : 0));
 			return status;
 		}
 
-		int ILuaAPI.Yield( int numResults )
+		int ILuaAPI.Yield(int numResults)
 		{
-			return API.YieldK( numResults, 0, null );
+			return API.YieldK(numResults, 0, null);
 		}
 
-		int ILuaAPI.YieldK( int numResults,
-			int context, CSharpFunctionDelegate continueFunc )
+		int ILuaAPI.YieldK(int numResults,
+			int context, CSharpFunctionDelegate continueFunc)
 		{
 			CallInfo ci = CI;
-			Utl.ApiCheckNumElems( this, numResults );
+			Utl.ApiCheckNumElems(this, numResults);
 
-			if( NumNonYieldable > 0 )
+			if (NumNonYieldable > 0)
 			{
-				if( this != G.MainThread )
-					G_RunError( "attempt to yield across metamethod/C-call boundary" );
+				if (this != G.MainThread)
+					G_RunError("attempt to yield across metamethod/C-call boundary");
 				else
-					G_RunError( "attempt to yield from outside a coroutine" );
+					G_RunError("attempt to yield from outside a coroutine");
 			}
 			Status = ThreadStatus.LUA_YIELD;
 			ci.ExtraIndex = ci.FuncIndex; // save current `func'
-			if( ci.IsLua ) // inside a hook
+			if (ci.IsLua) // inside a hook
 			{
-				Utl.ApiCheck( continueFunc == null, "hooks cannot continue after yielding" );
+				Utl.ApiCheck(continueFunc == null, "hooks cannot continue after yielding");
 			}
 			else
 			{
 				ci.ContinueFunc = continueFunc;
-				if( ci.ContinueFunc != null ) // is there a continuation
+				if (ci.ContinueFunc != null) // is there a continuation
 				{
 					ci.Context = context;
 				}
 				ci.FuncIndex = Top.Index - (numResults + 1);
-				D_Throw( ThreadStatus.LUA_YIELD );
+				D_Throw(ThreadStatus.LUA_YIELD);
 			}
-			Utl.Assert( (ci.CallStatus & CallStatus.CIST_HOOKED) != 0 ); // must be inside a hook
+			Utl.Assert((ci.CallStatus & CallStatus.CIST_HOOKED) != 0); // must be inside a hook
 			return 0;
 		}
-		
 
-		int ILuaAPI.AbsIndex( int index )
+
+		int ILuaAPI.AbsIndex(int index)
 		{
 			return (index > 0 || index <= LuaDef.LUA_REGISTRYINDEX)
 				 ? index
@@ -643,87 +651,84 @@ namespace LSW.UniLua
 			return Top.Index - (CI.FuncIndex + 1);
 		}
 
-		void ILuaAPI.SetTop( int index )
+		void ILuaAPI.SetTop(int index)
 		{
-			if( index >= 0 )
+			if (index >= 0)
 			{
-				Utl.ApiCheck(index <= StackLast-(CI.FuncIndex+1), "new top too large");
-				int newTop = CI.FuncIndex+1+index;
-				for(int i=Top.Index; i<newTop; ++i)
-					{ Stack[i].V.SetNilValue(); }
+				Utl.ApiCheck(index <= StackLast - (CI.FuncIndex + 1), "new top too large");
+				int newTop = CI.FuncIndex + 1 + index;
+				for (int i = Top.Index; i < newTop; ++i)
+				{ Stack[i].V.SetNilValue(); }
 				Top = Stack[newTop];
 			}
 			else
 			{
-				Utl.ApiCheck( -(index+1) <= (Top.Index - (CI.FuncIndex + 1)), "invalid new top" );
+				Utl.ApiCheck(-(index + 1) <= (Top.Index - (CI.FuncIndex + 1)), "invalid new top");
 				Top = Stack[Top.Index + index + 1];
 			}
 		}
 
-		void ILuaAPI.Remove( int index )
+		void ILuaAPI.Remove(int index)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				Utl.InvalidIndex();
 
-			for(int i=addr.Index+1; i<Top.Index; ++i)
-				{ Stack[i-1].V.SetObj(ref Stack[i].V); }
+			for (int i = addr.Index + 1; i < Top.Index; ++i)
+			{ Stack[i - 1].V.SetObj(ref Stack[i].V); }
 
-			Top = Stack[Top.Index-1];
+			Top = Stack[Top.Index - 1];
 		}
 
-		void ILuaAPI.Insert( int index )
+		void ILuaAPI.Insert(int index)
 		{
-			StkId p;
-			if( !Index2Addr( index, out p ) )
+			if (!Index2Addr(index, out StkId p))
 				Utl.InvalidIndex();
 
 			int i = Top.Index;
-			while(i > p.Index) {
-				Stack[i].V.SetObj( ref Stack[i-1].V );
+			while (i > p.Index)
+			{
+				Stack[i].V.SetObj(ref Stack[i - 1].V);
 				i--;
 			}
 			p.V.SetObj(ref Top.V);
 		}
 
-		private void MoveTo( StkId fr, int index )
+		private void MoveTo(StkId fr, int index)
 		{
-			StkId to;
-			if( !Index2Addr( index, out to ) )
+			if (!Index2Addr(index, out StkId to))
 				Utl.InvalidIndex();
 
 			to.V.SetObj(ref fr.V);
 		}
 
-		void ILuaAPI.Replace( int index )
+		void ILuaAPI.Replace(int index)
 		{
-			Utl.ApiCheckNumElems( this, 1 );
-			MoveTo( Stack[Top.Index-1], index );
-			Top = Stack[Top.Index-1];
-		}
-		
-		void ILuaAPI.Copy( int fromIndex, int toIndex )
-		{
-			StkId fr;
-			if( !Index2Addr( fromIndex, out fr ) )
-				Utl.InvalidIndex();
-			MoveTo( fr, toIndex );
+			Utl.ApiCheckNumElems(this, 1);
+			MoveTo(Stack[Top.Index - 1], index);
+			Top = Stack[Top.Index - 1];
 		}
 
-		void ILuaAPI.XMove( ILuaState to, int n )
+		void ILuaAPI.Copy(int fromIndex, int toIndex)
+		{
+			if (!Index2Addr(fromIndex, out StkId fr))
+				Utl.InvalidIndex();
+			MoveTo(fr, toIndex);
+		}
+
+		void ILuaAPI.XMove(ILuaState to, int n)
 		{
 			var toLua = to as LuaState;
-			if( (LuaState)this == toLua )
+			if ((LuaState)this == toLua)
 				return;
 
-			Utl.ApiCheckNumElems( this, n );
-			Utl.ApiCheck( G == toLua.G, "moving among independent states" );
-			Utl.ApiCheck( toLua.CI.TopIndex - toLua.Top.Index >= n, "not enough elements to move" );
+			Utl.ApiCheckNumElems(this, n);
+			Utl.ApiCheck(G == toLua.G, "moving among independent states");
+			Utl.ApiCheck(toLua.CI.TopIndex - toLua.Top.Index >= n, "not enough elements to move");
 
-			int index = Top.Index-n;
+			int index = Top.Index - n;
 			Top = Stack[index];
-			for(int i=0; i<n; ++i)
-				{ StkId.Inc(ref toLua.Top).V.SetObj(ref Stack[index+i].V); }
+			for (int i = 0; i < n; ++i)
+			{ StkId.Inc(ref toLua.Top).V.SetObj(ref Stack[index + i].V); }
 		}
 
 		private void GrowStack(int size)
@@ -739,28 +744,32 @@ namespace LSW.UniLua
 		{
 			param.L.GrowStack(param.size);
 		}
-		private static PFuncDelegate<GrowStackParam> DG_GrowStack = GrowStackWrap;
+		private static readonly PFuncDelegate<GrowStackParam> DG_GrowStack = GrowStackWrap;
 
 		bool ILuaAPI.CheckStack(int size)
 		{
 			bool res = false;
 
-			if(StackLast - Top.Index > size)
-				{ res = true; }
+			if (StackLast - Top.Index > size)
+			{ res = true; }
 			// need to grow stack
-			else {
+			else
+			{
 				int inuse = Top.Index + LuaDef.EXTRA_STACK;
-				if(inuse > LuaConf.LUAI_MAXSTACK - size)
+				if (inuse > LuaConf.LUAI_MAXSTACK - size)
 					res = false;
-				else {
-					var param = new GrowStackParam();
-					param.L = this;
-					param.size = size;
-					res = D_RawRunProtected(DG_GrowStack, ref param)==ThreadStatus.LUA_OK;
+				else
+				{
+					var param = new GrowStackParam
+					{
+						L = this,
+						size = size
+					};
+					res = D_RawRunProtected(DG_GrowStack, ref param) == ThreadStatus.LUA_OK;
 				}
 			}
 
-			if(res && CI.TopIndex < Top.Index + size)
+			if (res && CI.TopIndex < Top.Index + size)
 				CI.TopIndex = Top.Index + size; // adjust frame top
 
 			return res;
@@ -768,12 +777,12 @@ namespace LSW.UniLua
 
 		int ILuaAPI.Error()
 		{
-			Utl.ApiCheckNumElems( this, 1 );
+			Utl.ApiCheckNumElems(this, 1);
 			G_ErrorMsg();
 			return 0;
 		}
 
-		int ILuaAPI.UpvalueIndex( int i )
+		int ILuaAPI.UpvalueIndex(int i)
 		{
 			return LuaDef.LUA_REGISTRYINDEX - i;
 		}
@@ -782,37 +791,37 @@ namespace LSW.UniLua
 		{
 			val = null;
 
-			if(!addr.V.TtIsFunction())
+			if (!addr.V.TtIsFunction())
 				return null;
 
-			if(addr.V.ClIsLuaClosure()) {
+			if (addr.V.ClIsLuaClosure())
+			{
 				var f = addr.V.ClLValue();
 				var p = f.Proto;
-				if(!(1 <= n && n <= p.Upvalues.Count))
+				if (!(1 <= n && n <= p.Upvalues.Count))
 					return null;
-				val = f.Upvals[n-1].V;
-				var name = p.Upvalues[n-1].Name;
-				return (name == null) ? "" : name;
+				val = f.Upvals[n - 1].V;
+				var name = p.Upvalues[n - 1].Name;
+				return name ?? "";
 			}
-			else if(addr.V.ClIsCsClosure()) {
+			else if (addr.V.ClIsCsClosure())
+			{
 				var f = addr.V.ClCsValue();
-				if(!(1 <= n && n <= f.Upvals.Length))
+				if (!(1 <= n && n <= f.Upvals.Length))
 					return null;
-				val = f.Upvals[n-1];
+				val = f.Upvals[n - 1];
 				return "";
 			}
 			else return null;
 		}
 
-		string ILuaAPI.GetUpvalue( int funcIndex, int n )
+		string ILuaAPI.GetUpvalue(int funcIndex, int n)
 		{
-			StkId addr;
-			if( !Index2Addr( funcIndex, out addr ) )
+			if (!Index2Addr(funcIndex, out StkId addr))
 				return null;
 
-			StkId val;
-			var name = AuxUpvalue(addr, n, out val);
-			if(name == null)
+			var name = AuxUpvalue(addr, n, out StkId val);
+			if (name == null)
 				return null;
 
 			Top.V.SetObj(ref val.V);
@@ -820,69 +829,65 @@ namespace LSW.UniLua
 			return name;
 		}
 
-		string ILuaAPI.SetUpvalue( int funcIndex, int n )
+		string ILuaAPI.SetUpvalue(int funcIndex, int n)
 		{
-			StkId addr;
-			if( !Index2Addr( funcIndex, out addr ) )
+			if (!Index2Addr(funcIndex, out StkId addr))
 				return null;
 
-			Utl.ApiCheckNumElems( this, 1 );
+			Utl.ApiCheckNumElems(this, 1);
 
-			StkId val;
-			var name = AuxUpvalue(addr, n, out val);
-			if(name == null)
+			var name = AuxUpvalue(addr, n, out StkId val);
+			if (name == null)
 				return null;
 
-			Top = Stack[Top.Index-1];
+			Top = Stack[Top.Index - 1];
 			val.V.SetObj(ref Top.V);
 			return name;
 		}
 
-		void ILuaAPI.CreateTable( int narray, int nrec )
+		void ILuaAPI.CreateTable(int narray, int nrec)
 		{
 			var tbl = new LuaTable(this);
 			Top.V.SetHValue(tbl);
 			ApiIncrTop();
-			if(narray > 0 || nrec > 0)
-				{ tbl.Resize(narray, nrec); }
+			if (narray > 0 || nrec > 0)
+			{ tbl.Resize(narray, nrec); }
 		}
 
 		void ILuaAPI.NewTable()
 		{
-			API.CreateTable( 0, 0 );
+			API.CreateTable(0, 0);
 		}
 
-		bool ILuaAPI.Next( int index )
+		bool ILuaAPI.Next(int index)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				throw new System.Exception("table expected");
 
 			var tbl = addr.V.HValue();
-			if( tbl == null )
+			if (tbl == null)
 				throw new System.Exception("table expected");
 
-			var key = Stack[Top.Index-1];
-			if( tbl.Next( key, Top ) )
+			var key = Stack[Top.Index - 1];
+			if (tbl.Next(key, Top))
 			{
 				ApiIncrTop();
 				return true;
 			}
 			else
 			{
-				Top = Stack[Top.Index-1];
+				Top = Stack[Top.Index - 1];
 				return false;
 			}
 		}
 
-		void ILuaAPI.RawGetI( int index, int n )
+		void ILuaAPI.RawGetI(int index, int n)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
-				Utl.ApiCheck( false, "table expected" );
+			if (!Index2Addr(index, out StkId addr))
+				Utl.ApiCheck(false, "table expected");
 
 			var tbl = addr.V.HValue();
-			Utl.ApiCheck( tbl != null, "table expected" );
+			Utl.ApiCheck(tbl != null, "table expected");
 
 			Top.V.SetObj(ref tbl.GetInt(n).V);
 			ApiIncrTop();
@@ -919,116 +924,108 @@ namespace LSW.UniLua
 #endif
 		}
 
-		void ILuaAPI.RawGet( int index )
+		void ILuaAPI.RawGet(int index)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				throw new System.Exception("table expected");
 
-			if(!addr.V.TtIsTable())
+			if (!addr.V.TtIsTable())
 				throw new System.Exception("table expected");
 
 			var tbl = addr.V.HValue();
-			var below = Stack[Top.Index-1];
-			below.V.SetObj( ref tbl.Get( ref below.V ).V );
+			var below = Stack[Top.Index - 1];
+			below.V.SetObj(ref tbl.Get(ref below.V).V);
 		}
 
-		void ILuaAPI.RawSetI( int index, int n )
+		void ILuaAPI.RawSetI(int index, int n)
 		{
-			Utl.ApiCheckNumElems( this, 1 );
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			Utl.ApiCheckNumElems(this, 1);
+			if (!Index2Addr(index, out StkId addr))
 				Utl.InvalidIndex();
-			Utl.ApiCheck( addr.V.TtIsTable(), "table expected" );
+			Utl.ApiCheck(addr.V.TtIsTable(), "table expected");
 			var tbl = addr.V.HValue();
-			tbl.SetInt( n, ref Stack[Top.Index-1].V );
-			Top = Stack[Top.Index-1];
+			tbl.SetInt(n, ref Stack[Top.Index - 1].V);
+			Top = Stack[Top.Index - 1];
 		}
 
-		void ILuaAPI.RawSet( int index )
+		void ILuaAPI.RawSet(int index)
 		{
-			Utl.ApiCheckNumElems( this, 2 );
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			Utl.ApiCheckNumElems(this, 2);
+			if (!Index2Addr(index, out StkId addr))
 				Utl.InvalidIndex();
-			Utl.ApiCheck( addr.V.TtIsTable(), "table expected" );
+			Utl.ApiCheck(addr.V.TtIsTable(), "table expected");
 			var tbl = addr.V.HValue();
-			tbl.Set( ref Stack[Top.Index-2].V, ref Stack[Top.Index-1].V );
-			Top = Stack[Top.Index-2];
+			tbl.Set(ref Stack[Top.Index - 2].V, ref Stack[Top.Index - 1].V);
+			Top = Stack[Top.Index - 2];
 		}
 
-		void ILuaAPI.GetField( int index, string key )
+		void ILuaAPI.GetField(int index, string key)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				Utl.InvalidIndex();
 
 			Top.V.SetSValue(key);
 			var below = Top;
 			ApiIncrTop();
-			V_GetTable( addr, below, below );
+			V_GetTable(addr, below, below);
 		}
 
-		void ILuaAPI.SetField( int index, string key )
+		void ILuaAPI.SetField(int index, string key)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				Utl.InvalidIndex();
 
-			StkId.Inc(ref Top).V.SetSValue( key );
-			V_SetTable( addr, Stack[Top.Index-1], Stack[Top.Index-2] );
-			Top = Stack[Top.Index-2];
+			StkId.Inc(ref Top).V.SetSValue(key);
+			V_SetTable(addr, Stack[Top.Index - 1], Stack[Top.Index - 2]);
+			Top = Stack[Top.Index - 2];
 		}
 
-		void ILuaAPI.GetTable( int index )
+		void ILuaAPI.GetTable(int index)
 		{
-			StkId addr;
-			if(! Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				Utl.InvalidIndex();
 
 			var below = Stack[Top.Index - 1];
-			V_GetTable( addr, below, below );
+			V_GetTable(addr, below, below);
 		}
 
-		void ILuaAPI.SetTable( int index )
+		void ILuaAPI.SetTable(int index)
 		{
-			StkId addr;
-			Utl.ApiCheckNumElems( this, 2 );
-			if(! Index2Addr( index, out addr ) )
+			Utl.ApiCheckNumElems(this, 2);
+			if (!Index2Addr(index, out StkId addr))
 				Utl.InvalidIndex();
 
 			var key = Stack[Top.Index - 2];
 			var val = Stack[Top.Index - 1];
-			V_SetTable( addr, key, val);
-			Top = Stack[Top.Index-2];
+			V_SetTable(addr, key, val);
+			Top = Stack[Top.Index - 2];
 		}
 
-		void ILuaAPI.Concat( int n )
+		void ILuaAPI.Concat(int n)
 		{
-			Utl.ApiCheckNumElems( this, n );
-			if( n >= 2 )
+			Utl.ApiCheckNumElems(this, n);
+			if (n >= 2)
 			{
-				V_Concat( n );
+				V_Concat(n);
 			}
-			else if( n == 0 )
+			else if (n == 0)
 			{
 				Top.V.SetSValue("");
 				ApiIncrTop();
 			}
 		}
 
-		LuaType ILuaAPI.Type( int index )
+		LuaType ILuaAPI.Type(int index)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				return LuaType.LUA_TNONE;
 
 			return (LuaType)addr.V.Tt;
 		}
 
-		internal static string TypeName( LuaType t )
+		internal static string TypeName(LuaType t)
 		{
-			switch( t )
+			switch (t)
 			{
 				case LuaType.LUA_TNIL:
 					return "nil";
@@ -1071,120 +1068,114 @@ namespace LSW.UniLua
 			}
 		}
 
-		string ILuaAPI.TypeName( LuaType t )
+		string ILuaAPI.TypeName(LuaType t)
 		{
 			return TypeName(t);
 		}
 
-		internal string ObjTypeName( ref TValue v )
+		internal string ObjTypeName(ref TValue v)
 		{
 			return TypeName((LuaType)v.Tt);
 		}
 
 		// 用于内部使用 不会因为 ApiIncrTop() 检查 Top 超过 CI.Top 报错
-		internal void O_PushString( string s )
+		internal void O_PushString(string s)
 		{
 			Top.V.SetSValue(s);
 			IncrTop();
 		}
 
-		bool ILuaAPI.IsNil( int index )
+		bool ILuaAPI.IsNil(int index)
 		{
-			return API.Type( index ) == LuaType.LUA_TNIL;
+			return API.Type(index) == LuaType.LUA_TNIL;
 		}
 
-		bool ILuaAPI.IsNone( int index )
+		bool ILuaAPI.IsNone(int index)
 		{
-			return API.Type( index ) == LuaType.LUA_TNONE;
+			return API.Type(index) == LuaType.LUA_TNONE;
 		}
 
-		bool ILuaAPI.IsNoneOrNil( int index )
+		bool ILuaAPI.IsNoneOrNil(int index)
 		{
-			LuaType t = API.Type( index );
+			LuaType t = API.Type(index);
 			return t == LuaType.LUA_TNONE ||
 				t == LuaType.LUA_TNIL;
 		}
 
-		bool ILuaAPI.IsString( int index )
+		bool ILuaAPI.IsString(int index)
 		{
-			LuaType t = API.Type( index );
-			return( t == LuaType.LUA_TSTRING || t == LuaType.LUA_TNUMBER );
+			LuaType t = API.Type(index);
+			return (t == LuaType.LUA_TSTRING || t == LuaType.LUA_TNUMBER);
 		}
 
-		bool ILuaAPI.IsTable( int index )
+		bool ILuaAPI.IsTable(int index)
 		{
-			return API.Type( index ) == LuaType.LUA_TTABLE;
+			return API.Type(index) == LuaType.LUA_TTABLE;
 		}
 
-		bool ILuaAPI.IsFunction( int index )
+		bool ILuaAPI.IsFunction(int index)
 		{
-			return API.Type( index ) == LuaType.LUA_TFUNCTION;
+			return API.Type(index) == LuaType.LUA_TFUNCTION;
 		}
 
-		bool ILuaAPI.Compare( int index1, int index2, LuaEq op )
+		bool ILuaAPI.Compare(int index1, int index2, LuaEq op)
 		{
-			StkId addr1;
-			if( !Index2Addr( index1, out addr1 ) )
+			if (!Index2Addr(index1, out StkId addr1))
 				Utl.InvalidIndex();
 
-			StkId addr2;
-			if( !Index2Addr( index2, out addr2 ) )
+			if (!Index2Addr(index2, out StkId addr2))
 				Utl.InvalidIndex();
 
-			switch( op )
+			switch (op)
 			{
-				case LuaEq.LUA_OPEQ: return EqualObj( ref addr1.V, ref addr2.V, false );
-				case LuaEq.LUA_OPLT: return V_LessThan( addr1, addr2 );
-				case LuaEq.LUA_OPLE: return V_LessEqual( addr1, addr2 );
-				default: Utl.ApiCheck( false, "invalid option" ); return false;
+				case LuaEq.LUA_OPEQ: return EqualObj(ref addr1.V, ref addr2.V, false);
+				case LuaEq.LUA_OPLT: return V_LessThan(addr1, addr2);
+				case LuaEq.LUA_OPLE: return V_LessEqual(addr1, addr2);
+				default: Utl.ApiCheck(false, "invalid option"); return false;
 			}
 		}
 
-		bool ILuaAPI.RawEqual( int index1, int index2 )
+		bool ILuaAPI.RawEqual(int index1, int index2)
 		{
-			StkId addr1;
-			if( !Index2Addr( index1, out addr1 ) )
+			if (!Index2Addr(index1, out StkId addr1))
 				return false;
 
-			StkId addr2;
-			if( !Index2Addr( index2, out addr2 ) )
+			if (!Index2Addr(index2, out StkId addr2))
 				return false;
 
-			return V_RawEqualObj( ref addr1.V, ref addr2.V );
+			return V_RawEqualObj(ref addr1.V, ref addr2.V);
 		}
 
-		int ILuaAPI.RawLen( int index )
+		int ILuaAPI.RawLen(int index)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				Utl.InvalidIndex();
 
-			switch( addr.V.Tt )
+			switch (addr.V.Tt)
 			{
 				case (int)LuaType.LUA_TSTRING:
-				{
-					var s = addr.V.SValue();
-					return s == null ? 0 : s.Length;
-				}
+					{
+						var s = addr.V.SValue();
+						return s == null ? 0 : s.Length;
+					}
 				case (int)LuaType.LUA_TUSERDATA:
-				{
-					return addr.V.RawUValue().Length;
-				}
+					{
+						return addr.V.RawUValue().Length;
+					}
 				case (int)LuaType.LUA_TTABLE:
-				{
-					return addr.V.HValue().Length;
-				}
+					{
+						return addr.V.HValue().Length;
+					}
 				default: return 0;
 			}
 		}
 
-		void ILuaAPI.Len( int index )
+		void ILuaAPI.Len(int index)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				Utl.InvalidIndex();
 
-			V_ObjLen( Top, addr );
+			V_ObjLen(Top, addr);
 
 			ApiIncrTop();
 		}
@@ -1195,33 +1186,33 @@ namespace LSW.UniLua
 			ApiIncrTop();
 		}
 
-		void ILuaAPI.PushBoolean( bool b )
+		void ILuaAPI.PushBoolean(bool b)
 		{
-			Top.V.SetBValue( b );
+			Top.V.SetBValue(b);
 			ApiIncrTop();
 		}
 
-		void ILuaAPI.PushNumber( double n )
+		void ILuaAPI.PushNumber(double n)
 		{
-			Top.V.SetNValue( n );
+			Top.V.SetNValue(n);
 			ApiIncrTop();
 		}
 
-		void ILuaAPI.PushInteger( int n )
+		void ILuaAPI.PushInteger(int n)
 		{
-			Top.V.SetNValue( (double)n );
+			Top.V.SetNValue(n);
 			ApiIncrTop();
 		}
 
-		void ILuaAPI.PushUnsigned( uint n )
+		void ILuaAPI.PushUnsigned(uint n)
 		{
-			Top.V.SetNValue( (double)n );
+			Top.V.SetNValue(n);
 			ApiIncrTop();
 		}
 
-		string ILuaAPI.PushString( string s )
+		string ILuaAPI.PushString(string s)
 		{
-			if( s == null )
+			if (s == null)
 			{
 				API.PushNil();
 				return null;
@@ -1234,38 +1225,37 @@ namespace LSW.UniLua
 			}
 		}
 
-		void ILuaAPI.PushCSharpFunction( CSharpFunctionDelegate f )
+		void ILuaAPI.PushCSharpFunction(CSharpFunctionDelegate f)
 		{
-			API.PushCSharpClosure( f, 0 );
+			API.PushCSharpClosure(f, 0);
 		}
-		
-		void ILuaAPI.PushCSharpClosure( CSharpFunctionDelegate f, int n )
+
+		void ILuaAPI.PushCSharpClosure(CSharpFunctionDelegate f, int n)
 		{
-			if( n == 0 )
+			if (n == 0)
 			{
-				Top.V.SetClCsValue( new LuaCsClosureValue( f ) );
+				Top.V.SetClCsValue(new LuaCsClosureValue(f));
 			}
 			else
 			{
 				// 带 UpValue 的 C# function
-				Utl.ApiCheckNumElems( this, n );
-				Utl.ApiCheck( n <= LuaLimits.MAXUPVAL, "upvalue index too large" );
+				Utl.ApiCheckNumElems(this, n);
+				Utl.ApiCheck(n <= LuaLimits.MAXUPVAL, "upvalue index too large");
 
-				LuaCsClosureValue cscl = new LuaCsClosureValue( f, n );
+				LuaCsClosureValue cscl = new LuaCsClosureValue(f, n);
 				int index = Top.Index - n;
 				Top = Stack[index];
-				for(int i=0; i<n; ++i)
-					{ cscl.Upvals[i].V.SetObj( ref Stack[index+i].V ); }
+				for (int i = 0; i < n; ++i)
+				{ cscl.Upvals[i].V.SetObj(ref Stack[index + i].V); }
 
-				Top.V.SetClCsValue( cscl );
+				Top.V.SetClCsValue(cscl);
 			}
 			ApiIncrTop();
 		}
 
-		void ILuaAPI.PushValue( int index )
+		void ILuaAPI.PushValue(int index)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				Utl.InvalidIndex();
 
 			Top.V.SetObj(ref addr.V);
@@ -1274,18 +1264,18 @@ namespace LSW.UniLua
 
 		void ILuaAPI.PushGlobalTable()
 		{
-			API.RawGetI( LuaDef.LUA_REGISTRYINDEX, LuaDef.LUA_RIDX_GLOBALS );
+			API.RawGetI(LuaDef.LUA_REGISTRYINDEX, LuaDef.LUA_RIDX_GLOBALS);
 		}
 
-		void ILuaAPI.PushLightUserData( object o )
+		void ILuaAPI.PushLightUserData(object o)
 		{
-			Top.V.SetPValue( o );
+			Top.V.SetPValue(o);
 			ApiIncrTop();
 		}
 
-		void ILuaAPI.PushUInt64( UInt64 o )
+		void ILuaAPI.PushUInt64(UInt64 o)
 		{
-			Top.V.SetUInt64Value( o );
+			Top.V.SetUInt64Value(o);
 			ApiIncrTop();
 		}
 
@@ -1296,139 +1286,144 @@ namespace LSW.UniLua
 			return G.MainThread == (LuaState)this;
 		}
 
-		void ILuaAPI.Pop( int n )
+		void ILuaAPI.Pop(int n)
 		{
-			API.SetTop( -n-1 );
+			API.SetTop(-n - 1);
 		}
 
-		bool ILuaAPI.GetMetaTable( int index )
+		bool ILuaAPI.GetMetaTable(int index)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				Utl.InvalidIndex();
 
 			LuaTable mt;
-			switch( addr.V.Tt )
+			switch (addr.V.Tt)
 			{
 				case (int)LuaType.LUA_TTABLE:
-				{
-					var tbl = addr.V.HValue();
-					mt = tbl.MetaTable;
-					break;
-				}
+					{
+						var tbl = addr.V.HValue();
+						mt = tbl.MetaTable;
+						break;
+					}
 				case (int)LuaType.LUA_TUSERDATA:
-				{
-					var ud = addr.V.RawUValue();
-					mt = ud.MetaTable;
-					break;
-				}
+					{
+						var ud = addr.V.RawUValue();
+						mt = ud.MetaTable;
+						break;
+					}
 				default:
-				{
-					mt = G.MetaTables[addr.V.Tt];
-					break;
-				}
+					{
+						mt = G.MetaTables[addr.V.Tt];
+						break;
+					}
 			}
-			if( mt == null )
+			if (mt == null)
 				return false;
 			else
 			{
-				Top.V.SetHValue( mt );
+				Top.V.SetHValue(mt);
 				ApiIncrTop();
 				return true;
 			}
 		}
 
-		bool ILuaAPI.SetMetaTable( int index )
+		bool ILuaAPI.SetMetaTable(int index)
 		{
-			Utl.ApiCheckNumElems( this, 1 );
+			Utl.ApiCheckNumElems(this, 1);
 
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				Utl.InvalidIndex();
 
 			var below = Stack[Top.Index - 1];
 			LuaTable mt;
-			if( below.V.TtIsNil() )
+			if (below.V.TtIsNil())
 				mt = null;
 			else
 			{
-				Utl.ApiCheck( below.V.TtIsTable(), "table expected" );
+				Utl.ApiCheck(below.V.TtIsTable(), "table expected");
 				mt = below.V.HValue();
 			}
 
-			switch( addr.V.Tt )
+			switch (addr.V.Tt)
 			{
 				case (int)LuaType.LUA_TTABLE:
-				{
-					var tbl = addr.V.HValue();
-					tbl.MetaTable = mt;
-					break;
-				}
+					{
+						var tbl = addr.V.HValue();
+						tbl.MetaTable = mt;
+						break;
+					}
 				case (int)LuaType.LUA_TUSERDATA:
-				{
-					var ud = addr.V.RawUValue();
-					ud.MetaTable = mt;
-					break;
-				}
+					{
+						var ud = addr.V.RawUValue();
+						ud.MetaTable = mt;
+						break;
+					}
 				default:
-				{
-					G.MetaTables[addr.V.Tt] = mt;
-					break;
-				}
+					{
+						G.MetaTables[addr.V.Tt] = mt;
+						break;
+					}
 			}
 			Top = Stack[Top.Index - 1];
 			return true;
 		}
 
-		void ILuaAPI.GetGlobal( string name )
+		void ILuaAPI.GetGlobal(string name)
 		{
-			var gt = G.Registry.V.HValue().GetInt( LuaDef.LUA_RIDX_GLOBALS );
+			var gt = G.Registry.V.HValue().GetInt(LuaDef.LUA_RIDX_GLOBALS);
 			StkId.Inc(ref Top).V.SetSValue(name);
-			V_GetTable(gt, Stack[Top.Index-1], Stack[Top.Index-1]);
+			V_GetTable(gt, Stack[Top.Index - 1], Stack[Top.Index - 1]);
 		}
 
-		void ILuaAPI.SetGlobal( string name )
+		void ILuaAPI.SetGlobal(string name)
 		{
-			var gt = G.Registry.V.HValue().GetInt( LuaDef.LUA_RIDX_GLOBALS );
+			var gt = G.Registry.V.HValue().GetInt(LuaDef.LUA_RIDX_GLOBALS);
 			StkId.Inc(ref Top).V.SetSValue(name);
-			V_SetTable(gt, Stack[Top.Index-1], Stack[Top.Index-2]);
-			Top = Stack[Top.Index-2];
+			V_SetTable(gt, Stack[Top.Index - 1], Stack[Top.Index - 2]);
+			Top = Stack[Top.Index - 2];
 		}
 
-		string ILuaAPI.ToString( int index )
+		string ILuaAPI.ToString(int index)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				return null;
 
-			if(addr.V.TtIsString()) {
+			if (addr.V.TtIsString())
+			{
 				return addr.V.OValue as string;
 			}
-			else if(addr.V.TtIsNumber()) {
-				return addr.V.NValue.ToString();
-			}
-			else {
+
+			if (!V_ToString(ref addr.V))
+			{
 				return null;
 			}
+
+			if (!Index2Addr(index, out addr))
+				return null;
+
+			Utl.Assert(addr.V.TtIsString());
+			return addr.V.OValue as string;
 		}
 
-		double ILuaAPI.ToNumberX( int index, out bool isnum )
+		double ILuaAPI.ToNumberX(int index, out bool isnum)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 			{
 				isnum = false;
 				return 0.0;
 			}
 
-			if(addr.V.TtIsNumber()) {
+			if (addr.V.TtIsNumber())
+			{
 				isnum = true;
 				return addr.V.NValue;
 			}
 
-			if(addr.V.TtIsString()) {
+			if (addr.V.TtIsString())
+			{
 				var n = new TValue();
-				if(V_ToNumber(addr, ref n)) {
+				if (V_ToNumber(addr, ref n))
+				{
 					isnum = true;
 					return n.NValue;
 				}
@@ -1438,29 +1433,30 @@ namespace LSW.UniLua
 			return 0;
 		}
 
-		double ILuaAPI.ToNumber( int index )
+		double ILuaAPI.ToNumber(int index)
 		{
-			bool isnum;
-			return API.ToNumberX( index, out isnum );
+			return API.ToNumberX(index, out _);
 		}
 
-		int ILuaAPI.ToIntegerX( int index, out bool isnum )
+		int ILuaAPI.ToIntegerX(int index, out bool isnum)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 			{
 				isnum = false;
 				return 0;
 			}
 
-			if(addr.V.TtIsNumber()) {
+			if (addr.V.TtIsNumber())
+			{
 				isnum = true;
 				return (int)addr.V.NValue;
 			}
 
-			if(addr.V.TtIsString()) {
+			if (addr.V.TtIsString())
+			{
 				var n = new TValue();
-				if(V_ToNumber(addr, ref n)) {
+				if (V_ToNumber(addr, ref n))
+				{
 					isnum = true;
 					return (int)n.NValue;
 				}
@@ -1470,28 +1466,30 @@ namespace LSW.UniLua
 			return 0;
 		}
 
-		int ILuaAPI.ToInteger( int index )
+		int ILuaAPI.ToInteger(int index)
 		{
-			bool isnum;
-			return API.ToIntegerX( index, out isnum );
+			return API.ToIntegerX(index, out _);
 		}
 
-		uint ILuaAPI.ToUnsignedX( int index, out bool isnum )
+		uint ILuaAPI.ToUnsignedX(int index, out bool isnum)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) ) {
+			if (!Index2Addr(index, out StkId addr))
+			{
 				isnum = false;
 				return 0;
 			}
 
-			if( addr.V.TtIsNumber() ) {
+			if (addr.V.TtIsNumber())
+			{
 				isnum = true;
 				return (uint)addr.V.NValue;
 			}
 
-			if( addr.V.TtIsString() ) {
+			if (addr.V.TtIsString())
+			{
 				var n = new TValue();
-				if(V_ToNumber(addr, ref n)) {
+				if (V_ToNumber(addr, ref n))
+				{
 					isnum = true;
 					return (uint)n.NValue;
 				}
@@ -1501,30 +1499,29 @@ namespace LSW.UniLua
 			return 0;
 		}
 
-		uint ILuaAPI.ToUnsigned( int index )
+		uint ILuaAPI.ToUnsigned(int index)
 		{
-			bool isnum;
-			return API.ToUnsignedX( index, out isnum );
+			return API.ToUnsignedX(index, out _);
 		}
 
-		bool ILuaAPI.ToBoolean( int index )
+		bool ILuaAPI.ToBoolean(int index)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				return false;
 
 			return !IsFalse(ref addr.V);
 		}
 
-		UInt64 ILuaAPI.ToUInt64X( int index, out bool isnum )
+		UInt64 ILuaAPI.ToUInt64X(int index, out bool isnum)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) ) {
+			if (!Index2Addr(index, out StkId addr))
+			{
 				isnum = false;
 				return 0;
 			}
 
-			if( !addr.V.TtIsUInt64() ) {
+			if (!addr.V.TtIsUInt64())
+			{
 				isnum = false;
 				return 0;
 			}
@@ -1533,28 +1530,26 @@ namespace LSW.UniLua
 			return addr.V.UInt64Value;
 		}
 
-		UInt64 ILuaAPI.ToUInt64( int index )
+		UInt64 ILuaAPI.ToUInt64(int index)
 		{
-			bool isnum;
-			return API.ToUInt64X( index, out isnum );
+			return API.ToUInt64X(index, out _);
 		}
 
-		object ILuaAPI.ToObject( int index )
+		object ILuaAPI.ToObject(int index)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				return null;
 
 			return addr.V.OValue;
 		}
 
-		object ILuaAPI.ToUserData( int index )
+		object ILuaAPI.ToUserData(int index)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				return null;
 
-			switch(addr.V.Tt) {
+			switch (addr.V.Tt)
+			{
 				case (int)LuaType.LUA_TUSERDATA:
 					throw new System.NotImplementedException();
 				case (int)LuaType.LUA_TLIGHTUSERDATA: { return addr.V.OValue; }
@@ -1563,36 +1558,36 @@ namespace LSW.UniLua
 			}
 		}
 
-		ILuaState ILuaAPI.ToThread( int index )
+		ILuaState ILuaAPI.ToThread(int index)
 		{
-			StkId addr;
-			if( !Index2Addr( index, out addr ) )
+			if (!Index2Addr(index, out StkId addr))
 				return null;
 			return addr.V.TtIsThread() ? addr.V.OValue as ILuaState : null;
 		}
 
-		private bool Index2Addr( int index, out StkId addr )
+		private bool Index2Addr(int index, out StkId addr)
 		{
 			CallInfo ci = CI;
-			if( index > 0 )
+			if (index > 0)
 			{
 				var addrIndex = ci.FuncIndex + index;
-				Utl.ApiCheck( index <= ci.TopIndex - (ci.FuncIndex + 1), "unacceptable index" );
-				if( addrIndex >= Top.Index ) {
-					addr = default(StkId);
+				Utl.ApiCheck(index <= ci.TopIndex - (ci.FuncIndex + 1), "unacceptable index");
+				if (addrIndex >= Top.Index)
+				{
+					addr = default;
 					return false;
 				}
 
 				addr = Stack[addrIndex];
 				return true;
 			}
-			else if( index > LuaDef.LUA_REGISTRYINDEX )
+			else if (index > LuaDef.LUA_REGISTRYINDEX)
 			{
-				Utl.ApiCheck( index != 0 && -index <= Top.Index - (ci.FuncIndex + 1), "invalid index" );
+				Utl.ApiCheck(index != 0 && -index <= Top.Index - (ci.FuncIndex + 1), "invalid index");
 				addr = Stack[Top.Index + index];
 				return true;
 			}
-			else if( index == LuaDef.LUA_REGISTRYINDEX )
+			else if (index == LuaDef.LUA_REGISTRYINDEX)
 			{
 				addr = G.Registry;
 				return true;
@@ -1601,23 +1596,25 @@ namespace LSW.UniLua
 			else
 			{
 				index = LuaDef.LUA_REGISTRYINDEX - index;
-				Utl.ApiCheck( index <= LuaLimits.MAXUPVAL + 1, "upvalue index too large" );
+				Utl.ApiCheck(index <= LuaLimits.MAXUPVAL + 1, "upvalue index too large");
 				var func = Stack[ci.FuncIndex];
 				Utl.Assert(func.V.TtIsFunction());
 
-				if(func.V.ClIsLcsClosure()) {
-					addr = default(StkId);
+				if (func.V.ClIsLcsClosure())
+				{
+					addr = default;
 					return false;
 				}
 
 				Utl.Assert(func.V.ClIsCsClosure());
 				var clcs = func.V.ClCsValue();
-				if(index > clcs.Upvals.Length) {
-					addr = default(StkId);
+				if (index > clcs.Upvals.Length)
+				{
+					addr = default;
 					return false;
 				}
 
-				addr = clcs.Upvals[index-1];
+				addr = clcs.Upvals[index - 1];
 				return true;
 			}
 		}
@@ -1631,4 +1628,3 @@ namespace LSW.UniLua
 	}
 
 }
-
