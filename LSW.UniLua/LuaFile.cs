@@ -4,9 +4,14 @@ using System.Collections.Generic;
 
 namespace LSW.UniLua
 {
-    internal class LuaFile
+    public class LuaFile
     {
-        private static readonly string LUA_ROOT = Directory.GetCurrentDirectory();
+        private static string LUA_ROOT = Directory.GetCurrentDirectory();
+
+        public void SetLuaRoot(string path)
+        {
+            LUA_ROOT = Path.Combine(path, LUA_ROOT);
+        }
 
         public static FileLoadInfo OpenFile(string filename)
         {
@@ -31,7 +36,7 @@ namespace LSW.UniLua
         }
     }
 
-    internal class FileLoadInfo : ILoadInfo, IDisposable
+    public class FileLoadInfo : ILoadInfo, IDisposable
     {
         public FileLoadInfo(FileStream stream)
         {
