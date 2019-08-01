@@ -4,24 +4,25 @@ using System.Collections.Generic;
 
 namespace LSW.UniLua
 {
+    public delegate string PathHook(string filename);
     public class LuaFile
     {
-        private static string LUA_ROOT = Directory.GetCurrentDirectory();
-
-        public void SetLuaRoot(string path)
+        private static readonly string LUA_ROOT = Directory.GetCurrentDirectory();
+        private static PathHook pathhook = (s) => Path.Combine(LUA_ROOT, s);
+        public static void SetPathHook(PathHook hook)
         {
-            LUA_ROOT = Path.Combine(path, LUA_ROOT);
+            pathhook = hook;
         }
 
         public static FileLoadInfo OpenFile(string filename)
         {
-            var path = Path.Combine(LUA_ROOT, filename);
+            var path = pathhook(filename);
             return new FileLoadInfo(File.Open(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
         }
 
         public static bool Readable(string filename)
         {
-            var path = Path.Combine(LUA_ROOT, filename);
+            var path = pathhook(filename);
             try
             {
                 using (var stream = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
