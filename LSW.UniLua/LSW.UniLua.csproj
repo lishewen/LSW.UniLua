@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <Authors>算神</Authors>
     <Company>算神工作室</Company>
     <Description>一个C#与Lua互操作的库，可用于.net core</Description>
